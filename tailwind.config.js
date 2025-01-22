@@ -8,7 +8,8 @@ export default {
     extend: {},
   },
   plugins: [
-    '@tailwindcss/forms',
+    // eslint-disable-next-line @typescript-eslint/no-require-imports, no-undef
+    require('@tailwindcss/forms'),
   ],
 }
 

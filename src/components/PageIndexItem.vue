@@ -1,6 +1,9 @@
 <template>
   <div class="flex gap-1 justify-center">
-    <RouterLink v-for="letter of letters" v-bind:key="letter" to="/letter/{{ letter }}"
+    <RouterLink
+      v-for="letter of letters"
+      v-bind:key="letter"
+      :to="{ name: 'byLetter', params: { letter } }"
       >{{ letter }}
     </RouterLink>
   </div>

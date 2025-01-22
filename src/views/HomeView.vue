@@ -1,14 +1,17 @@
 <script setup lang="ts">
-import PageIndexItem from '@/components/PageIndexItem.vue'
+import { fetchCategories } from '@/services'
+import { onMounted, ref } from 'vue'
+
+const categories = ref([])
+
+onMounted(async () => {
+  const response = await fetchCategories().then((res) => res)
+  categories.value = response
+})
 </script>
 
 <template>
   <main>
-    <div class="flex p-8 justify-center">
-      <input type="text" class="w-full rounded border-2 border-gray-200" placeholder="search..." />
-    </div>
+    <pre>{{ categories }}</pre>
   </main>
-  <footer>
-    <PageIndexItem />
-  </footer>
 </template>
