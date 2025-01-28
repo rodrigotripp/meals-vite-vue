@@ -22,6 +22,9 @@ const router = createRouter({
       path: '/letter/:letter',
       name: 'byLetter',
       component: () => import('../components/MealListItem.vue'),
+      props: {
+        letter: ':letter'
+      }
     }
   ],
 })

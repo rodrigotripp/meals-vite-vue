@@ -1,8 +1,43 @@
-export const fetchCategories = async () => {
+export const getCategories = async () => {
   try {
-    const response = await fetch('https://www.themealdb.com/api/json/v1/1/categories.php');
-    const categories = await response.json();
-    return categories.categories
+    const response = await fetch(
+      `${import.meta.env.VITE_APP_MEALS_API}/categories.php`,
+      {
+        method: "GET",
+      }
+    )
+    const res = await response.json();
+    return res.categories
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export const getFilterByCategory = async (category: string) => {
+  try {
+    const response = await fetch(
+      `${import.meta.env.VITE_APP_MEALS_API}/filter.php?c=${category}`,
+      {
+        method: "GET",
+      }
+    )
+    const res = await response.json();
+    return res.meals
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export const getMealsByLetter = async (letter: string) => {
+  try {
+    const response = await fetch(
+      `${import.meta.env.VITE_APP_MEALS_API}//search.php?f=${letter}`,
+      {
+        method: "GET",
+      }
+    )
+    const res = await response.json();
+    return res.meals
   } catch (error) {
     console.error(error);
   }

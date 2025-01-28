@@ -2,7 +2,7 @@
   <div class="flex gap-1 justify-center">
     <RouterLink
       v-for="letter of letters"
-      v-bind:key="letter"
+      :key="letter"
       :to="{ name: 'byLetter', params: { letter } }"
       >{{ letter }}
     </RouterLink>
