@@ -5,7 +5,7 @@ import { type Category, type Meals } from '@/types'
 
 export interface State {
   meals: Meals[]
-  ingridient: Category[]
+  categories: Category[]
 }
 
 export interface Store {
@@ -16,7 +16,7 @@ export const usePiniaStore = defineStore('piniaStore', {
   state: (): State => {
     return {
       meals: [],
-      ingridient: []
+      categories: []
     }
   },
   actions: {
@@ -25,7 +25,7 @@ export const usePiniaStore = defineStore('piniaStore', {
     },
 
     async getCategories() {
-      this.ingridient = await getCategories()
+      this.categories = await getCategories()
     }
 
   }
@@ -35,7 +35,7 @@ export const useVuexStore: Store = createStore(
   {
     state: {
       meals: [],
-      ingridient: []
+      categories: []
     },
     mutations: {
       searchMeals() {

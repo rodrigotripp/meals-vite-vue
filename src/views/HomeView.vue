@@ -29,7 +29,7 @@ function searchByMeal() {
     </div>
     <div class="flex justify-around gap-1">
       <ButtonItem
-        v-for="category of store.ingridient"
+        v-for="category of store.categories"
         :key="category.idCategory"
         :value="category.strCategory"
         to="/"
@@ -37,6 +37,6 @@ function searchByMeal() {
         {{ category.strCategory }}
       </ButtonItem>
     </div>
-    <!-- <pre>{{ store.meals }}</pre> -->
+    <pre>{{ store.meals }}</pre>
   </main>
 </template>
