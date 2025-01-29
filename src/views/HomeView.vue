@@ -1,32 +1,42 @@
 <script setup lang="ts">
-import { getCategories } from '@/services'
-import { onMounted, ref, onBeforeMount } from 'vue'
+import { usePiniaStore } from '@/stores/index'
+import { onMounted, ref } from 'vue'
 import ButtonItem from '@/components/ButtonItem.vue'
-import { type Category } from '@/types'
-let categories: Category[] = ref([]).value
-onBeforeMount(async () => {
-  const response = await getCategories().then((res) => res)
-  categories = response
+
+const store = usePiniaStore()
+
+onMounted(() => {
+  store.getCategories()
 })
 
-onMounted(async () => {
-  console.log('onMounted')
-})
+const keyword = ref('')
+
+function searchByMeal() {
+  store.searchByMeals(keyword.value)
+}
 </script>
 
 <template>
-  <main>
+  <main class="h-full">
     <div class="flex p-8 justify-center">
-      <input type="text" class="w-full rounded border-2 border-gray-200" placeholder="search..." />
+      <input
+        type="text"
+        class="w-full rounded border-2 border-gray-200"
+        placeholder="search..."
+        v-model="keyword"
+        @change="searchByMeal"
+      />
     </div>
-    <div class="flex justify-around gap-1 bg-purple-300">
+    <div class="flex justify-around gap-1">
       <ButtonItem
-        v-for="category of categories"
+        v-for="category of store.ingridient"
         :key="category.idCategory"
         :value="category.strCategory"
+        to="/"
       >
         {{ category.strCategory }}
       </ButtonItem>
     </div>
+    <!-- <pre>{{ store.meals }}</pre> -->
   </main>
 </template>

@@ -1,5 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import MealsbyIngri from '@/views/MealsbyIngri.vue'
+import AlphabetMeals from '@/views/AlphabetMeals.vue'
+import SearchByMeals from '@/views/SearchByMeals.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -25,7 +28,22 @@ const router = createRouter({
       props: {
         letter: ':letter'
       }
-    }
+    },
+    {
+      path: '/Search/:name?',
+      name: 'Search',
+      component: SearchByMeals,
+    },
+    {
+      path: '/MealsbyIngri/:ingridient?',
+      name: 'MealsbyIngri',
+      component: MealsbyIngri,
+    },
+    {
+      path: '/AlphabetMeals/:letter?',
+      name: 'AlphabetMeals',
+      component: AlphabetMeals,
+    },
   ],
 })
 

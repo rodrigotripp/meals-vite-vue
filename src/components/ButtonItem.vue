@@ -1,20 +1,13 @@
 <template>
-  <component class="bg-blue-400 rounded-md" :is="type" :to="to">
-    {{ value }}
-  </component>
+  <RouterLink class="bg-blue-200 px-1 rounded-md text-slate-600" :to="to">
+    {{ props.value }}
+  </RouterLink>
 </template>
 
 <script lang="ts" setup>
-import { computed } from 'vue'
+import { RouterLink } from 'vue-router'
 const props = defineProps<{
   value: string
-  to?: string
+  to: string
 }>()
-
-const type = computed(() => {
-  if (props.to) {
-    return 'RouterLink'
-  }
-  return 'button'
-})
 </script>

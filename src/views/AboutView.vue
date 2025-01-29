@@ -1,17 +1,15 @@
 <template>
   <div class="about">
     <h1>This is an about page</h1>
-    <pre>{{ store.meals }}</pre>
-    <pre>{{ meals }}</pre>
+    <pre>{{ store }}</pre>
+    <pre>{{ vuexState }}</pre>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { useStore } from '@/stores'
-import { useVuexStore } from '@/stores'
+import { usePiniaStore, useVuexStore } from '@/stores'
 import { computed } from 'vue'
-const store = useStore()
+const store = usePiniaStore()
 const vuexStore = useVuexStore
-
-const meals = computed(() => vuexStore.state.meals)
+const vuexState = computed(() => vuexStore.state)
 </script>

@@ -5,7 +5,7 @@ import FooterItem from './components/FooterItem.vue'
 </script>
 
 <template>
-  <div class="bg-gray-100 h-100">
+  <div class="bg-gray-100 h-full">
     <HeaderItem />
     <RouterView />
     <FooterItem />

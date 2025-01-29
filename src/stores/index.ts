@@ -1,25 +1,48 @@
 import { defineStore } from 'pinia'
 import { createStore } from 'vuex'
+import { getCategories, searchByMeals } from '@/services'
+import { type Category, type Meals } from '@/types'
 
 export interface State {
-  meals: string[]
+  meals: Meals[]
+  ingridient: Category[]
 }
 
 export interface Store {
   state: State
 }
 
-export const useStore = defineStore('storeId', {
+export const usePiniaStore = defineStore('piniaStore', {
   state: (): State => {
     return {
-      meals: ['gato']
+      meals: [],
+      ingridient: []
     }
+  },
+  actions: {
+    async searchByMeals(word: string) {
+      this.meals = await searchByMeals(word);
+    },
+
+    async getCategories() {
+      this.ingridient = await getCategories()
+    }
+
   }
 })
 
 export const useVuexStore: Store = createStore(
   {
     state: {
-      meals: ['perro']
+      meals: [],
+      ingridient: []
+    },
+    mutations: {
+      searchMeals() {
+
+      },
+      getCategories() {
+
+      }
     }
   });
