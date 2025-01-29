@@ -12,6 +12,7 @@ onMounted(() => {
 const keyword = ref('')
 
 function searchByMeal() {
+  console.log('hola')
   store.searchByMeals(keyword.value)
 }
 </script>
