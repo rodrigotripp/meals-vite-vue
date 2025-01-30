@@ -1,19 +1,19 @@
 <script setup lang="ts">
-import { usePiniaStore } from '@/stores/index'
+import { useCategoryStore } from '@/stores/useCategoryStore'
+import { useMealStore } from '@/stores/useMealStore'
+
 import { onMounted, ref } from 'vue'
 import ButtonItem from '@/components/ButtonItem.vue'
+import MealItem from '@/components/MealItem.vue'
 
-const store = usePiniaStore()
+const categoryStore = useCategoryStore()
+const mealStore = useMealStore()
 
 onMounted(() => {
-  store.getCategories()
+  categoryStore.getCategories()
 })
 
 const keyword = ref('')
-
-function searchByMeal() {
-  store.searchByMeals(keyword.value)
-}
 </script>
 
 <template>
@@ -24,12 +24,12 @@ function searchByMeal() {
         class="w-full rounded border-2 border-gray-200"
         placeholder="search..."
         v-model="keyword"
-        @change="searchByMeal"
+        @change="mealStore.searchByMeals(keyword)"
       />
     </div>
     <div class="flex justify-around gap-1">
       <ButtonItem
-        v-for="category of store.categories"
+        v-for="category of categoryStore.categories"
         :key="category.idCategory"
         :value="category.strCategory"
         to="/"
@@ -37,6 +37,8 @@ function searchByMeal() {
         {{ category.strCategory }}
       </ButtonItem>
     </div>
-    <pre>{{ store.meals }}</pre>
+    <div v-if="mealStore.meals" class="flex p-2 gap-2">
+      <MealItem v-for="meal in mealStore.meals" :key="meal.strMeal" :meal="meal" />
+    </div>
   </main>
 </template>

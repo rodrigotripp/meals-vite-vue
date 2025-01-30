@@ -1,10 +1,10 @@
 import { defineStore } from 'pinia'
 import { createStore } from 'vuex'
 import { getCategories, searchByMeals } from '@/services'
-import { type Category, type Meals } from '@/types'
+import { type Category, type Meal } from '@/types'
 
 export interface State {
-  meals: Meals[]
+  meals: Meal[]
   categories: Category[]
 }
 

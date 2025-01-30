@@ -51,6 +51,7 @@ export const searchByMeals = async (word: string) => {
         method: "GET",
       }
     )
+    console.log('response')
     const res = await response.json();
     return res.meals
   } catch (error) {
