@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-around gap-1">
+  <div class="flex justify-around gap-1 px-8 overflow-x-auto">
     <ButtonItem
       v-for="category of categoryStore.categories"
       :key="category.idCategory"
@@ -11,7 +11,7 @@
   </div>
 </template>
 <script lang="ts" setup>
-import ButtonItem from '@/components/ButtonItem.vue'
+import ButtonItem from '@/components/FilterButtonItem.vue'
 import { useCategoryStore } from '@/stores/useCategoryStore'
 import { onMounted } from 'vue'
 
