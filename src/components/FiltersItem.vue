@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-around gap-1 px-8 overflow-x-auto">
+  <div class="flex gap-1 mx-6 pb-5 overflow-x-auto w-auto">
     <ButtonItem
       v-for="category of categoryStore.categories"
       :key="category.idCategory"

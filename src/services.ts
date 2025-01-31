@@ -28,7 +28,8 @@ export const getFilterByCategory = async (category: string) => {
   }
 }
 
-export const getMealsByLetter = async (letter: string) => {
+export const getMealsByLetter = async (letter: string | string[]) => {
+  console.log('called')
   try {
     const response = await fetch(
       `${import.meta.env.VITE_APP_MEALS_API}/search.php?f=${letter}`,
@@ -51,7 +52,6 @@ export const searchByMeals = async (word: string) => {
         method: "GET",
       }
     )
-    console.log('response')
     const res = await response.json();
     return res.meals
   } catch (error) {

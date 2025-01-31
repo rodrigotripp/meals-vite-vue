@@ -1,5 +1,5 @@
 <template>
-  <footer>
+  <footer class="absolute bottom-0 bg-[#E67E22] w-full text-slate-200">
     <PageIndexItem />
   </footer>
 </template>

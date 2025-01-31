@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { type Meal } from '@/types';
-import { searchByMeals } from '@/services';
+import { searchByMeals, getMealsByLetter } from '@/services';
 
 export const useMealStore = defineStore('mealStore', {
   state: () => ({
@@ -10,5 +10,8 @@ export const useMealStore = defineStore('mealStore', {
     async searchByMeals(word: string) {
       this.meals = await searchByMeals(word);
     },
+    async searchByLetter(letter: string | string[]) {
+      this.meals = await getMealsByLetter(letter)
+    }
   }
 })

@@ -5,7 +5,7 @@ import SearchItem from '@/components/SearchItem.vue'
 </script>
 
 <template>
-  <main class="h-full">
+  <main>
     <SearchItem />
     <FiltersItem />
     <MealListItem />
