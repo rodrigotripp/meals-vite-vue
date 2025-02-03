@@ -25,7 +25,7 @@ const router = createRouter({
       path: '/letter/:letter',
       name: 'byLetter',
       component: () => import('../components/MealListItem.vue'),
-      beforeEnter: () => console.log('before enter'),
+      // beforeEnter: () => console.log('before enter'),
       props: route => {
         return { letter: route.params.letter }
       }

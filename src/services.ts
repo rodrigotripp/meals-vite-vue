@@ -1,7 +1,9 @@
+const _api_ = import.meta.env.VITE_APP_MEALS_API ?? 'https://www.themealdb.com/api/json/v1/1'
+
 export const getCategories = async () => {
   try {
     const response = await fetch(
-      `${import.meta.env.VITE_APP_MEALS_API}/categories.php`,
+      `${_api_}/categories.php`,
       {
         method: "GET",
       }
@@ -16,7 +18,7 @@ export const getCategories = async () => {
 export const getFilterByCategory = async (category: string) => {
   try {
     const response = await fetch(
-      `${import.meta.env.VITE_APP_MEALS_API}/filter.php?c=${category}`,
+      `${_api_}/filter.php?c=${category}`,
       {
         method: "GET",
       }
@@ -29,10 +31,9 @@ export const getFilterByCategory = async (category: string) => {
 }
 
 export const getMealsByLetter = async (letter: string | string[]) => {
-  console.log('called')
   try {
     const response = await fetch(
-      `${import.meta.env.VITE_APP_MEALS_API}/search.php?f=${letter}`,
+      `${_api_}/search.php?f=${letter}`,
       {
         method: "GET",
       }
@@ -47,7 +48,7 @@ export const getMealsByLetter = async (letter: string | string[]) => {
 export const searchByMeals = async (word: string) => {
   try {
     const response = await fetch(
-      `${import.meta.env.VITE_APP_MEALS_API}/search.php?s=${word}`,
+      `${_api_}/search.php?s=${word}`,
       {
         method: "GET",
       }
