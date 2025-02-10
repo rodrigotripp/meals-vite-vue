@@ -10,19 +10,17 @@ export interface Store {
   state: State
 }
 
-
-export const useVuexStore: Store = createStore(
-  {
-    state: {
-      meals: [],
-      categories: []
+export const useVuexStore: Store = createStore({
+  state: {
+    meals: [],
+    categories: [],
+  },
+  mutations: {
+    searchMeals() {
+      console.log('searchMeals')
     },
-    mutations: {
-      searchMeals() {
-        console.log('searchMeals')
-      },
-      getCategories() {
-        console.log('getCategories')
-      }
-    }
-  });
+    getCategories() {
+      console.log('getCategories')
+    },
+  },
+})
