@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { type Meal } from '@/types'
-import { searchByMeals, getMealsByLetter, getFilterByCategory } from '@/services'
+import { searchByMeals, getMealsByLetter, getFilterByCategory, mealById } from '@/services'
 
 export const useMealStore = defineStore('mealStore', {
   state: () => ({
@@ -15,5 +15,10 @@ export const useMealStore = defineStore('mealStore', {
     },
     async searchMealsByCategory(category: string) {
       this.meals = await getFilterByCategory(category)
+    },
+    async mealById(id: string): Promise<Meal> {
+      const meal = await mealById(id)
+      return meal
+    },
   },
-}})
+})

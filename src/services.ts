@@ -47,3 +47,15 @@ export const searchByMeals = async (word: string) => {
     console.error(error)
   }
 }
+
+export const mealById = async (id: string) => {
+  try {
+    const response = await fetch(`${_api_}/lookup.php?i=${id}`, {
+      method: 'GET',
+    })
+    const res = await response.json()
+    return res.meals[0]
+  } catch (error) {
+    console.error(error)
+  }
+}

@@ -8,3 +8,4 @@
 //     expect(wrapper.text()).toContain('Hello Vitest')
 //   })
 // })
+console.log('Hello')

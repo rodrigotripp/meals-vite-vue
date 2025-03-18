@@ -31,6 +31,15 @@ const router = createRouter({
       },
     },
     {
+      path: '/meal/:id',
+      name: 'mealView',
+      component: () => import('@/views/MealView.vue'),
+      props: (route) => {
+        console.log('route', route)
+        return { id: route.params.id }
+      },
+    },
+    {
       path: '/Search/:name?',
       name: 'Search',
       component: SearchByMeals,
