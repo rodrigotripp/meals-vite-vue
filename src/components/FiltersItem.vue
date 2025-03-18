@@ -4,6 +4,7 @@
       v-for="category of categoryStore.categories"
       :key="category.idCategory"
       :value="category.strCategory"
+      @click.prevent="mealStore.searchMealsByCategory(category.strCategory)"
       to="/"
     >
       {{ category.strCategory }}
@@ -13,9 +14,11 @@
 <script lang="ts" setup>
 import ButtonItem from '@/components/FilterButtonItem.vue'
 import { useCategoryStore } from '@/stores/useCategoryStore'
+import { useMealStore } from '@/stores/useMealStore'
 import { onMounted } from 'vue'
 
 const categoryStore = useCategoryStore()
+const mealStore = useMealStore()
 
 onMounted(() => {
   categoryStore.getCategories()
