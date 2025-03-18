@@ -1,6 +1,8 @@
 <template>
-  <div v-if="meal">
+  <div v-if="meal" class="rounded-lg shadow-lg bg-[#FFF9F0]  m-3 p-3">
     <h2>{{ meal.strMeal }}</h2>
+    <img :src="meal.strMealThumb" :alt="meal.strMeal">
+    <pre>{{ {...meal} }}</pre>
   </div>
   <div v-else>Loading meal...</div>
 </template>
