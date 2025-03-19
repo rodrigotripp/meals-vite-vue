@@ -25,7 +25,6 @@ const router = createRouter({
       path: '/letter/:letter',
       name: 'byLetter',
       component: () => import('../components/MealListItem.vue'),
-      // beforeEnter: () => console.log('before enter'),
       props: (route) => {
         return { letter: route.params.letter }
       },
@@ -35,7 +34,6 @@ const router = createRouter({
       name: 'mealView',
       component: () => import('@/views/MealView.vue'),
       props: (route) => {
-        console.log('route', route)
         return { id: route.params.id }
       },
     },
