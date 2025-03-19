@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-wrap justify-center p-8 gap-2 mb-16">
+  <div class="flex flex-wrap justify-start p-6 gap-3 mb-16">
     <MealCard v-for="meal in mealStore.meals" :key="meal.strMeal" :meal="meal" />
   </div>
 </template>
