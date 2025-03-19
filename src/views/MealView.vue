@@ -3,7 +3,7 @@
     <h2 class="text-[#E67E22] text-lg my-6">{{ meal.strMeal }}</h2>
     <div class="flex flex-row justify-start gap-3">
       <img :src="meal.strMealThumb" :alt="meal.strMeal" class="w-[30%] h-max" />
-      <ul class="text-[#78461b]">
+      <ul class="text-[#78461b] self-center">
         <li>Area: {{ meal.strArea }}</li>
         <li>Category: {{ meal.strCategory }}</li>
         <li class="text-justify ">Instructions: {{ meal.strInstructions }}</li>
@@ -31,11 +31,4 @@ const meal = ref<Meal | null>(null)
 onBeforeMount(async () => {
   meal.value = await mealStore.mealById(props.id)
 })
-
-const handleKeys = () => {
-  if(meal.value)
-  Object.keys(meal.value).forEach(key => console.log(key))
-};
-handleKeys();
-
 </script>
