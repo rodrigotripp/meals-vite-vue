@@ -6,7 +6,7 @@
     >
       Home
     </RouterLink>
-    <div>
+    <!-- <div>
       <RouterLink
         :to="{ name: 'Search' }"
         class="inline-flex px-2 h-full hover:bg-orange-400 items-center"
@@ -25,7 +25,7 @@
       >
         Meals by Ingredients
       </RouterLink>
-    </div>
+    </div> -->
   </header>
 </template>
 
